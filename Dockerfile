@@ -13,7 +13,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
 	php-gd \
 	php-json \
 	php-mbstring \
-	php-mcrypt \
 	php-mysql \
 	php-pgsql \
 	php-xmlrpc \
