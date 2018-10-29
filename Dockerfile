@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
 	php-dom \
 	php-fpm \
 	php-gd \
+	php-gettext \
 	php-json \
 	php-mbstring \
 	php-mysql \
