@@ -1,2 +1,2 @@
 15 1 * * * ttrss cd /srv/www && git pull
-*/30 * * * * ttrss /usr/bin/php7.0 /srv/www/update.php --feeds
+*/30 * * * * ttrss /usr/bin/php7.2 /srv/www/update.php --feeds

@@ -2,6 +2,7 @@ FROM ubuntu:bionic
 MAINTAINER Tillmann Heidsieck <theidsieck@leenox.de>
 EXPOSE 80
 
+COPY sources.list /etc/apt/sources.list
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
 	cron \
@@ -11,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
 	php-dom \
 	php-fpm \
 	php-gd \
+	php-intl \
 	php-gettext \
 	php-json \
 	php-mbstring \
@@ -24,6 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
 RUN ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime && \
 	dpkg-reconfigure --frontend noninteractive tzdata
 
+RUN sed -i s/\;extension=intl/extension=intl/g /etc/php/7.2/fpm/php.ini
 RUN useradd --user-group -d /srv -r -s /bin/bash ttrss
 
 COPY supervisord.conf /etc/
